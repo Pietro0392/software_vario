@@ -1,0 +1,11 @@
+Il programma inizia con il setup delle porte nella funzione mcu_setup: tutte le porte del microcontrollore non utilizzate vengono inizializzate
+come ingressi con resistenza di pull up interna attiva, la stessa sorte avviene anche per l'unico pin utile al programma
+ossia PINB4, essendo un pulsante, in questo modo potrò leggere 0 quando lo premerò e 1 logico quando non sarà premuto
+(grazie alla Rpull up)
+PINC0 invece viene impostato come pin di output con voltaggio low.
+inoltre viene resettato il watchdog timer per sicurezza dopodichè viene disabilitato in quanto non necessario al programma.
+
+La funzione main è molto semplice: utilizza una flag U8 per alternare l'utilizzo del pulsante di PINB4, infatti se premuto,
+il pulsante farà inizialmente lampeggiare il led presente a PINC0, dopodichè se ripremuto, lo spegnerà.
+
+I delay vengono utilizzati sia per evitare il rimbalzo dei pulsanti, sia per fare lampeggiare il led attraverso TGL
