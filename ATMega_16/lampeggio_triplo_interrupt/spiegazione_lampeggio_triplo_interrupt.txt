@@ -2,12 +2,14 @@ Il programma inizia con il setup delle porte in mcu_setup, alcuni pin appartenen
 il display LCD, comandato attraverso le librerie lcd.h, si usano le porte PC2,PC4,PC6 per fare lampeggiare tre led a diversi
 intervalli di tempo,
 inizializziamo l'LCD nel solito modo chiamando le funzioni LCD_init,clear...
+
 impostiamo il registro per configurare il timer hardware 0 così: TCCR0=0b00001011
 i tre bit meno significativi corrispondono, stando al data sheet di Atm16, al valore 64 che sarà il valore del prescaler.
 Il bit 3 e il bit 6 servono per attivare la modalità CTC, quindi il timer conterà da 0 fino a OCR0, poi genera un interrupt
 e riparte da capo
 per far sì che l'interrupt avvenga ogni millisecondo ho bisogno che OCR0 valga 124 (conta da 0 a 124), infatti
 8MHz / (125*64) = 1kHz
+
 Disabilitiamo il watchdog timer e attiviamo le interruzioni con SEI()
 
 come consultabile su timers.h abbiamo 5 timer virtuali, semplicemente nel programma gestiamo ogni interrupt chiamando
