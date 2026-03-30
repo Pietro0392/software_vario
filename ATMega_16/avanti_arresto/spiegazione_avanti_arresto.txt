@@ -1,8 +1,0 @@
-Il programma è molto semplice infatti potrebbe essere stato il mio primo mai svolto su questo microcontrollore.
-Il programma inizia con il setup delle porte in mcu_setup
-tutte le porte sono considerati ingressi con resistenza di pull up attiva, eccezion fatta per PINC0 che
-viene inizializzato come PIN di uscita a basso voltaggio, questo PIN rappresenterà il dispositivo da comandare
-il main controlla in continuazione se il pulsante di PINB4 sta venendo premuto, se viene premuto inverte lo stato di PINC0
-attraverso la macro TGL, i delay servono per evitare rimbalzi del pulsante e conseguenti letture errate.
-Avevo svolto anche una versione in cui un pulsante si occupava dello start e un altro dello stop ma non lo presento
-poichè troppo semplice e simile a questo.
