@@ -1,0 +1,8 @@
+Il programma illustrato è molto semplice:
+utilizza il protocollo uart e ne testa il funzionamento in questo modo:
+    - controlla se riceve un byte
+    - se lo riceve lo incrementa di uno e lo rispedisce al mittente
+
+Nota:
+l'mcu_setup inizializza dispositivi che in questo programma non si utilizzano essendo un test di comunicazione
+ma su cui poi si svilupperanno gli altri programmi.
